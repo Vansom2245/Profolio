@@ -55,3 +55,31 @@ function searchData() {
 
 
 }
+// menu
+
+const menu = document.querySelector(".header-menu-icon");
+const menuBox = document.querySelector(".nav-bar");
+
+function turnOffMenu(){
+    if(menuBox.classList.contains("nav-bar")){
+        menuBox.classList.remove("nav-bar");
+        menuBox.classList.add("none");
+    }
+}
+
+function menuActive() {
+    turnOffMenu();
+    if(menuBox.classList.contains("none")){
+        menuBox.classList.add("nav-bar-active");
+        menuBox.classList.remove("none");
+    } else {
+        menuBox.classList.remove("nav-bar-active");
+        menuBox.classList.add("none");
+    }
+    menuBox.addEventListener("click", () =>{
+        menuBox.classList.remove("nav-bar-active");
+        menuBox.classList.add("none");
+    })
+}
+menu.addEventListener("click", menuActive)
+

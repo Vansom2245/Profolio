@@ -19,6 +19,9 @@
     --text-color: rgb(255, 247, 247);
     --sup-color: rgb(87, 0, 138); 
 }
+.none {
+    display: none;
+}
 body {
     background: var(--bg-color);
     color: var(--text-color);
@@ -58,7 +61,6 @@ a{
     display: flex;
     align-items: center;
     gap: 1rem;
-    position: relative;
 }
 .header-content input {
     padding: 0.5rem 1rem;
@@ -123,6 +125,32 @@ a{
 .header-menu-icon{
     display: none;
     cursor: pointer;
+}
+
+.nav-bar-active {
+    position: absolute;
+    top: 80px;
+    right: 0;
+    width: 100%;
+    padding: 24px;
+    background: var(--sup-color);
+    transition: 0.4s all linear;
+    z-index: 1001;
+}
+.nav-bar-active ul {
+    text-align: center;
+}
+.nav-bar-active ul li a{
+    text-align: center;
+    display: inline-block;
+    font-size: 20px;
+    padding: 8px 0;
+    width: 100%;
+}
+.nav-bar-active ul li a:hover{
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid var(--main-color);
+    border-radius: 12px;
 }
 /* home */
 .home {
@@ -463,18 +491,16 @@ section h1:hover span::after {
     font-weight: 600;
     color: var(--main-color);
 }
-.none {
-    display: none;
-}
 /* contact */
 .contact {
     background: var(--sup-color);
+    text-align: center;
+
     padding: 24px;
 }
 .contact span{
     display: inline-block;
     padding-top: 12px;
-    text-align: center;
 }
 .contact-link{
     background: rgba(255, 255, 255, 0.1);
@@ -534,6 +560,31 @@ section h1:hover span::after {
     .header-content .nav-bar{
         display: none;
     }
+    .nav-bar.nav-bar-active {
+        position: absolute;
+        top: 80px;
+        right: 0;
+        width: 100%;
+        padding: 24px;
+        background: var(--sup-color);
+        transition: 0.4s all linear;
+        z-index: 1001;
+    }
+    .nav-bar.nav-bar-active ul {
+        text-align: center;
+    }
+    .nav-bar.nav-bar-active ul li a{
+        text-align: center;
+        display: inline-block;
+        font-size: 20px;
+        padding: 8px 0;
+        width: 100%;
+    }
+    .nav-bar.nav-bar-active ul li a:hover{
+        background: rgba(255, 255, 255, 0.2);
+        border: 1px solid var(--main-color);
+        border-radius: 12px;
+    }
     .main-skill-img{
         transform: scale(0.8);
     }
@@ -578,4 +629,22 @@ section h1:hover span::after {
     .header-content input {
         display: none;
     }
+}
+@media (max-width:420px) {
+    section, .skill{
+        padding: 20px 10px;
+    }
+    section h1 {
+        transform: scale(0.7);
+    }
+    .home-img img {
+        transform: scale(1);
+    }
+    .home-img img:hover {
+        transform: scale(1.05);
+    }
+    .main-skill-img{
+        transform: scale(0.5);
+    }
+
 }
