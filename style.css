@@ -30,6 +30,10 @@ img {
 section {
     padding: 20px 160px;
 }
+svg{
+    fill: var(--main-color);
+    stroke: var(--main-color);
+}
 header {
     background-color: var(--sup-color);
     display: flex;
@@ -41,16 +45,20 @@ header {
     position: fixed;
     width: 100%;
 }
-.header-logo {
+.header-logo a{
     display: flex;
     align-items: center;
     gap: 0.5rem;
     cursor: pointer;
 }
+a{
+    color: var(--text-color);
+}
 .header-content {
     display: flex;
     align-items: center;
     gap: 1rem;
+    position: relative;
 }
 .header-content input {
     padding: 0.5rem 1rem;
@@ -110,6 +118,11 @@ header {
 .header-content .nav-bar ul li .btn.active {
     /* background-color: var(--main-color); */
     color: var(--bg-color);
+}
+/* -------- */
+.header-menu-icon{
+    display: none;
+    cursor: pointer;
 }
 /* home */
 .home {
@@ -215,15 +228,18 @@ section h1:hover span::after {
 }
 /* project */
 .project-web {
-    display: flex;
+    /* display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-between; */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, auto));
+    justify-items: center;
     gap: 24px;   
     padding: 48px 24px; 
 }
 .project-web-box{
     padding: 24px;
-    width: 360px;
+    width: 280px;
     background: var(--sup-color);
     border-radius: 0.5rem;
     box-shadow: 4px 4px 12px var(--main-color);
@@ -250,9 +266,12 @@ section h1:hover span::after {
 }
 /* project novel */
 .project-novel {
-    display: flex;
+    /* display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: center; */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, auto));
+    justify-items: center;
     gap: 24px;
     margin-top: 64px;
 }
@@ -260,7 +279,7 @@ section h1:hover span::after {
     display: flex;
     flex-direction: column;
     position: relative;
-    width: 320px;
+    width: 280px;
     padding: 12px;
     box-shadow: 4px 4px 24px var(--main-color);
 }
@@ -307,7 +326,7 @@ section h1:hover span::after {
 }
 /* skill */
 .skill {
-    padding: 100px 0;
+    padding: 100px 120px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -376,7 +395,10 @@ section h1:hover span::after {
     right: 2%;
 }
 .skill-info {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, auto));
+    justify-items: center;
+    width: 100%;
     padding: 48px;
     gap: 24px;
 }
@@ -446,16 +468,28 @@ section h1:hover span::after {
 }
 /* contact */
 .contact {
-    display: flex;
     background: var(--sup-color);
     padding: 24px;
+}
+.contact span{
+    display: inline-block;
+    padding-top: 12px;
+    text-align: center;
+}
+.contact-link{
+    background: rgba(255, 255, 255, 0.1);
+    padding: 12px;
+    border-bottom: 2px solid var(--main-color);
+    /* display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center; */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, auto));
+    justify-items: center;
 }
 .contact ul, .contact form {
     height: 220px;
     width: 280px;
-    background: rgba(255, 255, 255, 0.1);
     padding: 12px;
     font-size: 16px;
 }
@@ -465,6 +499,9 @@ section h1:hover span::after {
     padding: 12px 24px;
     gap: 12px;
     border-radius: 0.5rem;
+}
+.contact ul li a{
+   color: var(--text-color);
 }
 .contact ul li:hover {
     background: rgba(255, 255, 255, 0.2);
@@ -484,4 +521,61 @@ section h1:hover span::after {
 }
 .contact form input:focus {
     outline: none;
+}
+
+/* responsive */
+@media (max-width: 1250px ) {
+    section{
+        padding: 20px 120px;
+    }
+    .header-menu-icon {
+        display: block;
+    }
+    .header-content .nav-bar{
+        display: none;
+    }
+    .main-skill-img{
+        transform: scale(0.8);
+    }
+}
+@media (max-width:960px) {
+    section{
+        padding: 20px 100px;
+    }
+    .home {
+        flex-direction: column;
+    }
+    .home-img {
+        padding: 80px 0;
+        text-align: center;
+    }
+    .home-img img {
+        transform: scale(1.2);
+    }
+    .home-img img:hover {
+        transform: scale(1.25);
+    }
+}
+@media (max-width: 720px) {
+    section, .skill{
+        padding: 20px 40px;
+    }
+    section h1 {
+        transform: scale(0.9);
+    }
+    .main-skill-img{
+        transform: scale(0.6);
+    }
+    
+}
+@media (max-width:590px) {
+    section, .skill{
+        padding: 20px 20px;
+    }
+    section h1 {
+        transform: scale(0.8);
+    }
+    .header-content input {
+        display: none;
+    }
 }

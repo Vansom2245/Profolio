@@ -40,15 +40,16 @@ function searchData() {
         return;
     }
         // duyệt tất cả các phần tử
-    const datas = document.body.querySelectorAll("*");
+    const datas = document.body.querySelectorAll("*").trim().toLowerCase().toString();
     // xử lý nếu phần tử đang bị ẩn
     for(const el of datas) {
         const style = window.getComputedStyle(el);
         if(style.display === "none" || style.visibility === "hiden") continue;
     }
-        
-
     //  chuẩn hóa
+    for(const el of datas) {
+
+    }
     // bỏ qua các phần tử xàm thẻ img, thẻ script...
     // cuộn đén vị trí đó hoạt thông báo không tìm thấy
 
